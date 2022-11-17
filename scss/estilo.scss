@@ -1,0 +1,205 @@
+@import "variables";
+
+
+
+
+h2{
+    font-size:large; 
+    
+    div{
+        margin: $margen;
+    }
+}
+
+h3 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    justify-content: space-around;
+
+    div{
+        margin: $margen;
+    }
+}
+
+.parrafo{
+    margin: $margen *1.5;
+}
+
+.contenedor_servicio {
+    display: grid;
+    grid-template-areas:
+    "servicio1 servicio2"
+    "servicio3 servicio4"
+    ;
+    div{
+        height: 12rem;
+        width: 35.9rem;
+        border: map-get($estilo-bordes,blackborder);
+        border-radius: map-get($estilo-bordes,borderadio);
+        padding: .5em;
+        color: white;
+        background-color: rgb(115, 169, 212);
+    }
+}
+
+img {
+    max-width: $maximo-width;
+    max-height: $maximo-height;
+    size-adjust: auto;
+    align-items: center;
+    border-radius: map-get($estilo-bordes,borderadio);
+   }
+
+footer{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
+
+.titulo{
+    font-weight: bold;
+    text-align: center;
+    font-size: large;
+    color: white; 
+    text-transform: uppercase;
+}
+
+.titulo_black{
+    font-weight: bold;
+    text-align: center;
+    font-size: x-large;
+    color: black;
+    text-transform: uppercase;
+    &:hover {
+        color: darkblue;
+        background-color: antiquewhite;
+        font-size: 2.18rem;
+    }
+}
+
+.subtitulo{
+    font-weight: bold;
+    text-align: center;
+    font-size: large;
+    color: white;
+    text-transform: uppercase;
+    background-color: rgb(124,146,179);
+    border-radius: map-get($estilo-bordes,borderadio);
+}
+.parrafo{
+    font-weight: normal;
+    text-align:justify;
+    font-size: medium;
+    text-transform:initial;
+}
+
+.servicio{
+    height: 11.8rem;
+    width: 35.9rem;
+    border: map-get($estilo-bordes,blackborder);
+    border-radius: map-get($estilo-bordes,borderadio);
+    padding: .5em;
+    color: white;
+    background-color: rgb(115, 169, 212);
+}
+
+iframe{
+    height: 23.12rem;
+    width: $maximo-width;
+}
+
+.lista_vacunas{
+    @if ($vacunas == si) {
+        column-count:5;
+    }@else {
+        column-count:0;
+    }
+    column-gap:$column-gap-vacunas;
+    column-rule:$column-rule-vacunas;
+    list-style: none;
+}
+
+.titulo_serv{
+    font-weight: bold;
+    text-align: center;
+    font-size:xx-large;
+    text-transform: uppercase;
+    &:hover {
+        color: darkblue;
+        background-color: antiquewhite;
+        font-size: 2.18rem;
+    }
+}
+
+
+.img_contactanos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    
+}
+
+.contenedor {
+    display: grid;
+    grid-template-areas:
+    "mision vision"
+    ;
+}
+
+
+@media (max-width:600px) {
+    .contenedor_servicio {
+        display: grid;
+        grid-template-areas:
+        "servicio1"
+        "servicio2"
+        "servicio3"
+        "servicio4" ;
+    } 
+
+    .contenedor {
+        display: grid;
+        grid-template-areas:
+        "mision"
+        "vision"
+        ;
+    }
+
+    .lista_vacunas{
+        @if ($vacunas == si) {
+            column-count:3;
+        }@else {
+            column-count:0;
+        }
+        column-gap:$column-gap-vacunas;
+        column-rule:$column-rule-vacunas;
+        list-style: none;
+    }
+}
+
+.servicio1, .servicio3{
+    margin: $margen;
+    max-width: $maximo-width;
+    &:hover{
+        margin: $margen;
+        transform: rotate(-$rotacion-animacion);
+    }
+}
+
+.servicio2, .servicio4{
+    margin: $margen;
+    max-width: $maximo-width;
+    &:hover{
+        margin: $margen;
+        transform: rotate($rotacion-animacion);
+    }
+}
+
+img, picture, video {
+    width: $maximo-width;
+}
